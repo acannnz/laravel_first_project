@@ -7,7 +7,7 @@
 @section('konten')
     <div class="my-3 p-3 bg-body rounded shadow-sm">
         <!-- FORM PENCARIAN -->
-        <div class="pb-3">
+        {{-- <div class="pb-3">
             <form class="d-flex" action="{{ url('/admin') }}" method="get">
                 <input type="hidden" name="page" value="{{ $data->currentPage() }}">
                 <input type="hidden" name="row" value="{{ request()->input('row') }}">
@@ -15,7 +15,7 @@
                     placeholder="Masukkan Nama" aria-label="Search">
                 <button class="btn btn-secondary" type="submit">Cari</button>
             </form>
-        </div>
+        </div> --}}
 
         <!-- TOMBOL TAMBAH DATA -->
         <div class="row pb-3 col-12">
@@ -24,7 +24,7 @@
             </div>
             <div class="col-2 justify-content-end align-items-end">
                 <div>
-                    <form class="row-form" action="{{ url('/admin') }}" method="GET">
+                    {{-- <form class="row-form" action="{{ url('/admin') }}" method="GET">
                         <input type="hidden" name="page" value="{{ $data->currentPage() }}">
                         <input type="hidden" name="search" value="{{ request()->input('search') }}">
                         <select name="row" class="custom-select" onchange="this.form.submit()">
@@ -33,12 +33,12 @@
                             <option value="2" {{ request()->input('row', 10) == 2 ? 'selected' : '' }}>2</option>
                             <option value="4" {{ request()->input('row', 10) == 4 ? 'selected' : '' }}>4</option>
                         </select>
-                    </form>
+                    </form> --}}
                 </div>
             </div>
         </div>
         @csrf
-        <table class="table table-striped">
+        <table id="myTable" class="table table-striped">
             <thead>
                 <tr>
                     <th class="col-md-1">No</th>
@@ -77,7 +77,7 @@
             </tbody>
         </table>
         {{-- pagination --}}
-        <ul class="pagination pagination-sm justify-content-end align-items-end">
+        {{-- <ul class="pagination pagination-sm justify-content-end align-items-end">
             <li class="page-item {{ $data->onFirstPage() ? 'disabled' : '' }}">
                 <a href="{{ $data->previousPageUrl() }}{{ strpos($data->previousPageUrl(), '?') !== false ? '&' : '?' }}row={{ request()->input('row', 1) }}&search={{ request()->input('search') }}"
                     class="page-link">Previous</a>
@@ -92,6 +92,15 @@
                 <a href="{{ $data->nextPageUrl() }}{{ strpos($data->nextPageUrl(), '?') !== false ? '&' : '?' }}row={{ request()->input('row', 1) }}&search={{ request()->input('search') }}"
                     class="page-link">Next</a>
             </li>
-        </ul>
+        </ul> --}}
     </div>
+@endsection
+@section('script')
+    <script src="{{ asset('AdminLTE') }}/plugins/jquery/jquery.min.js"></script>
+    <script src="//cdn.datatables.net/2.0.5/js/dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+    </script>
 @endsection

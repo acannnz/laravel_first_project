@@ -27,7 +27,6 @@
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3>{{ $daftarTugas }}</h3>
-
                             <p>Tugas</p>
                         </div>
                         <div class="icon">
@@ -43,7 +42,6 @@
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h3>{{ $jumlahUser }}</h3>
-
                             <p>Jumlah User</p>
                         </div>
                         <div class="icon">
