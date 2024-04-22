@@ -8,7 +8,7 @@
             <a href='{{ url('classroom/create') }}' class="btn btn-primary">Tambah Mata Kuliah</a>
         </div>
         @csrf
-        <table class="table table-striped">
+        <table id="myTable" class="table table-striped">
             <thead>
                 <tr>
                     <th class="col-md-6">Mata Kuliah</th>
@@ -30,6 +30,14 @@
                 @endforeach
             </tbody>
         </table>
-
     </div>
+@endsection
+@section('script')
+    <script src="{{ asset('AdminLTE') }}/plugins/jquery/jquery.min.js"></script>
+    <script src="//cdn.datatables.net/2.0.5/js/dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+    </script>
 @endsection
