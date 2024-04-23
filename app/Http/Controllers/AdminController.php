@@ -48,7 +48,7 @@ class AdminController extends Controller
         Session::flash('email', $request->email);
         Session::flash('password', $request->password);
         Session::flash('role', $request->role);
-
+        //a
         $request->validate([
             'name' => 'required|unique:Users,name',
             'email' => 'required',
