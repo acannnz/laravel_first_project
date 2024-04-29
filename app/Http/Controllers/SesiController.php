@@ -24,6 +24,7 @@ class SesiController extends Controller
             'password.required' => 'Password wajib Diisi'
         ]);
 
+
         $infologin = [
             'name' => $request->name,
             'password' => $request->password,
@@ -43,6 +44,7 @@ class SesiController extends Controller
             } elseif (Auth::user()->role == 'user') {
                 return redirect('/user');
             }
+            dd($request);
         } else {
             return redirect('')->withErrors('GAGAL LOGIN')->withInput();
         }
